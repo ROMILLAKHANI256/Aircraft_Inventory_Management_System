@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+/**********************************************
+ Workshop #6 & 7
+ Course:<APD-545> - Semester 5
+ Last Name:<Lakhani>
+ First Name:<Romil>
+ ID:<171612229>
+ Section:<NAA>
+ This assignment represents my own work in accordance with Seneca Academic Policy.
+ Signature : R.L.
+ Date:<01/08/2025>
+ **********************************************/
+-->
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="539.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fx.apd_workshop6_7.controllers.MainController">
+    <top>
+        <Label style="-fx-font-size: 20;" text="Inventory Management System" BorderPane.alignment="CENTER" />
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" prefHeight="485.0" prefWidth="804.0" spacing="20">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <HBox alignment="CENTER" prefHeight="390.0" prefWidth="398.0" spacing="30">
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Parts" />
+                    <TextField fx:id="partSearchField" promptText="Search Parts" />
+                <HBox alignment="CENTER" spacing="10">
+                    <Button onAction="#handlePartSearch" text="Search" />
+                    <Button fx:id="cancelSearchPart" layoutX="650.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleCancelSearchPart" text="Cancel Search" />
+
+                </HBox>
+
+                    <TableView fx:id="partTable" maxWidth="350" prefHeight="150">
+                        <columns>
+                            <TableColumn fx:id="partIdColumn" prefWidth="75" text="Part ID" />
+                            <TableColumn fx:id="partNameColumn" prefWidth="150" text="Part Name" />
+                            <TableColumn fx:id="partPriceColumn" prefWidth="75" text="Price" />
+                            <TableColumn fx:id="partStockColumn" prefWidth="50" text="Stock" />
+                        </columns>
+                    </TableView>
+                    <HBox alignment="CENTER" spacing="10">
+                        <Button onAction="#handleAddPart" text="Add" />
+                        <Button onAction="#handleModifyPart" text="Modify" />
+                        <Button onAction="#handleDeletePart" text="Delete" />
+                    </HBox>
+                </VBox>
+   
+                <VBox alignment="CENTER" spacing="10">
+
+                    <Label text="Products" />
+                    <TextField fx:id="productSearchField" promptText="Search Products" />
+                    <HBox alignment="CENTER" spacing="10">
+
+                    <Button onAction="#handleProductSearch" text="Search" />
+                    <Button fx:id="cancelSearchProductButton" layoutX="650.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleCancelSearchProduct" text="Cancel Search" />
+                    </HBox>
+                    <TableView fx:id="productTable" maxWidth="350" prefHeight="150">
+                        <columns>
+                            <TableColumn fx:id="productIdColumn" prefWidth="75" text="Product ID" />
+                            <TableColumn fx:id="productNameColumn" prefWidth="150" text="Product Name" />
+                            <TableColumn fx:id="productPriceColumn" prefWidth="75" text="Price" />
+                            <TableColumn fx:id="productStockColumn" prefWidth="50" text="Stock" />
+                        </columns>
+                    </TableView>
+                    <HBox alignment="CENTER" spacing="10">
+                        <Button onAction="#handleAddProduct" text="Add" />
+                        <Button onAction="#handleModifyProduct" text="Modify" />
+                        <Button onAction="#handleDeleteProduct" text="Delete" />
+                    </HBox>
+                </VBox>
+            </HBox>
+
+
+            <HBox alignment="CENTER" spacing="10">
+            <Button fx:id="btnLoadFromFile" onAction="#handleLoadFromFile" text="Load Data from File" />
+            <Button fx:id="btnSaveToFile" onAction="#handleSaveToFile" text="Save Data To File" />
+            <Button fx:id="btnWriteToDB" onAction="#handleSaveToDB" text="Write data on DB" />
+            <Button fx:id="btnLoadFromDB" onAction="#handleLoadFromDB" text="Load data from DB" />
+            <Button fx:id="InitializeDataforDB" onAction="#handleInitializeToDB" text="Set-up basic data for DB"/>
+            </HBox>
+            <Button onAction="#handleExit" text="Exit" />
+        </VBox>
+    </center>
+</BorderPane>
