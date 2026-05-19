@@ -11,9 +11,9 @@
  Date: 01-08-2025
  **********************************************/
 
-package com.fx.apd_workshop6_7.controllers;
+package com.fx.Aircraft_Inventory_Management_System.controllers;
 
-import com.fx.apd_workshop6_7.model.*;
+import com.fx.Aircraft_Inventory_Management_System.model.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;

@@ -11,7 +11,7 @@
  Date: 15-07-2025
  **********************************************/
 
-package com.fx.apd_workshop6_7;
+package com.fx.Aircraft_Inventory_Management_System;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

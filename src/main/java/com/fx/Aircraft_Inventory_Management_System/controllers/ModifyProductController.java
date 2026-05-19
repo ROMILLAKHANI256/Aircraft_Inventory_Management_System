@@ -1,20 +1,12 @@
-/**********************************************
- Workshop # 6 and 7
- Course: APD545
- Semester: 5
- Last Name: Lakhani
- First Name: Romil
- Student ID: 171612229
- Section: NAA
- This assignment represents my own work in accordance with Seneca Academic Policy.
- Signature: Romil Lakhani
- Date: 01-08-2025
- **********************************************/
-package com.fx.apd_workshop6_7.controllers;
 
-import com.fx.apd_workshop6_7.model.Inventory;
-import com.fx.apd_workshop6_7.model.Part;
-import com.fx.apd_workshop6_7.model.Product;
+
+package com.fx.Aircraft_Inventory_Management_System.controllers;
+
+
+import com.fx.Aircraft_Inventory_Management_System.model.Inventory;
+import com.fx.Aircraft_Inventory_Management_System.model.Part;
+import com.fx.Aircraft_Inventory_Management_System.model.Product;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -24,8 +16,7 @@ import javafx.stage.Stage;
 
 import java.util.Optional;
 
-public class AddProductController {
-
+public class ModifyProductController {
 
     @FXML private TextField idField;
     @FXML private TextField nameField;
@@ -34,7 +25,6 @@ public class AddProductController {
     @FXML private TextField maxField;
     @FXML private TextField minField;
     @FXML private TextField searchField;
-
     @FXML private TableColumn<Part, Integer> partIdCol;
     @FXML private TableColumn<Part, String> partNameCol;
     @FXML private TableColumn<Part, Integer> partInvCol;
@@ -48,12 +38,22 @@ public class AddProductController {
     @FXML private TableView<Part> partsTable;
     @FXML private TableView<Part> associatedPartsTable;
 
+    private Product originalProduct;
     private final ObservableList<Part> associatedParts = FXCollections.observableArrayList();
 
-    @FXML
-    public void initialize() {
-        idField.setText(String.valueOf(Inventory.peekNextProductID()));
-        idField.setDisable(true);
+    public void setProductToModify(Product product) {
+        this.originalProduct = product;
+
+        idField.setText(String.valueOf(product.getId()));
+        idField.setEditable(false);
+        nameField.setText(product.getName());
+        invField.setText(String.valueOf(product.getStock()));
+        priceField.setText(String.format("%.2f", product.getPrice()));
+        maxField.setText(String.valueOf(product.getMax()));
+        minField.setText(String.valueOf(product.getMin()));
+
+        associatedParts.setAll(product.getAssociatedParts());
+
         partIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         partNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         partInvCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
@@ -63,6 +63,7 @@ public class AddProductController {
         assocPartNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         assocPartInvCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
         assocPartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+
 
         partsTable.setItems(Inventory.getAllParts());
         associatedPartsTable.setItems(associatedParts);
@@ -117,7 +118,7 @@ public class AddProductController {
     @FXML
     public void handleSave() {
         try {
-            int id = Inventory.consumeNextProductID();
+            int id = originalProduct.getId(); // keep same ID
             String name = nameField.getText().trim();
             double price = Double.parseDouble(priceField.getText().trim());
             int stock = Integer.parseInt(invField.getText().trim());
@@ -150,9 +151,14 @@ public class AddProductController {
                 return;
             }
 
-            Product newProduct = new Product(id, name, price, stock, min, max);
-            associatedParts.forEach(newProduct::addAssociatedPart);
-            Inventory.addProduct(newProduct);
+            Product modifiedProduct = new Product(id, name, price, stock, min, max);
+            associatedParts.forEach(modifiedProduct::addAssociatedPart);
+
+            int index = Inventory.getAllProducts().indexOf(originalProduct);
+            if (index >= 0) {
+                Inventory.getAllProducts().set(index, modifiedProduct);
+            }
+
             closeWindow();
 
         } catch (NumberFormatException e) {

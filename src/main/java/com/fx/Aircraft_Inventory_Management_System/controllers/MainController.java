@@ -1,22 +1,11 @@
-/**********************************************
- Workshop # 6 and 7
- Course: APD545
- Semester: 5
- Last Name: Lakhani
- First Name: Romil
- Student ID: 171612229
- Section: NAA
- This assignment represents my own work in accordance with Seneca Academic Policy.
- Signature: Romil Lakhani
- Date: 01-08-2025
- **********************************************/
 
-package com.fx.apd_workshop6_7.controllers;
-import com.fx.apd_workshop6_7.databases.InventoryDAO;
-import com.fx.apd_workshop6_7.utils.InventoryData;
-import com.fx.apd_workshop6_7.model.Inventory;
-import com.fx.apd_workshop6_7.model.Part;
-import com.fx.apd_workshop6_7.model.Product;
+
+package com.fx.Aircraft_Inventory_Management_System.controllers;
+import com.fx.Aircraft_Inventory_Management_System.databases.InventoryDAO;
+import com.fx.Aircraft_Inventory_Management_System.utils.InventoryData;
+import com.fx.Aircraft_Inventory_Management_System.model.Inventory;
+import com.fx.Aircraft_Inventory_Management_System.model.Part;
+import com.fx.Aircraft_Inventory_Management_System.model.Product;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -151,7 +140,7 @@ public class MainController {
 
     @FXML
     private void handleAddPart() {
-        loadStage("/com/fx/apd_workshop6_7/AddPart.fxml");
+        loadStage("/com/fx/Aircraft_Inventory_Management_System/AddPart.fxml");
     }
 
     @FXML
@@ -163,7 +152,7 @@ public class MainController {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fx/apd_workshop6_7/ModifyPart.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fx/Aircraft_Inventory_Management_System/ModifyPart.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load()));
             ModifyPartController controller = loader.getController();
@@ -193,7 +182,7 @@ public class MainController {
 
     @FXML
     private void handleAddProduct() {
-        loadStage("/com/fx/apd_workshop6_7/AddProduct.fxml");
+        loadStage("/com/fx/Aircraft_Inventory_Management_System/AddProduct.fxml");
     }
 
     @FXML
@@ -205,7 +194,7 @@ public class MainController {
         }
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fx/apd_workshop6_7/ModifyProduct.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fx/Aircraft_Inventory_Management_System/ModifyProduct.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load()));
             ModifyProductController controller = loader.getController();
@@ -297,7 +286,7 @@ public class MainController {
     }
     @FXML
     private void handleInitializeToDB() {
-        InventoryDAO.initializeDatabaseFromFile("src/main/resources/com/fx/apd_workshop6_7/initialize.sql");
+        InventoryDAO.initializeDatabaseFromFile("src/main/resources/com/fx/Aircraft_Inventory_Management_System/initialize.sql");
 
     }
 

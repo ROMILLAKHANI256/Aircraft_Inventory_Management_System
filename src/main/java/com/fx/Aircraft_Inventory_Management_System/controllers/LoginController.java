@@ -1,17 +1,6 @@
-/**********************************************
- Workshop # 6 and 7
- Course: APD545
- Semester: 5
- Last Name: Lakhani
- First Name: Romil
- Student ID: 171612229
- Section: NAA
- This assignment represents my own work in accordance with Seneca Academic Policy.
- Signature: Romil Lakhani
- Date: 01-08-2025
- **********************************************/
 
-package com.fx.apd_workshop6_7.controllers;
+
+package com.fx.Aircraft_Inventory_Management_System.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,7 +31,7 @@ public class LoginController {
 
         if (users.containsKey(user) && users.get(user).equals(pass)) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fx/apd_workshop6_7/main.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fx/Aircraft_Inventory_Management_System/main.fxml"));
                 Stage stage = (Stage) usernameField.getScene().getWindow();
                 stage.setScene(new Scene(loader.load()));
                 stage.setTitle("Inventory Management System");

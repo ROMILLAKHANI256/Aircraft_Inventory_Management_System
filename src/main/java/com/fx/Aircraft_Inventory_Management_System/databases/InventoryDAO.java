@@ -1,23 +1,12 @@
-/**********************************************
- Workshop # 6 and 7
- Course: APD545
- Semester: 5
- Last Name: Lakhani
- First Name: Romil
- Student ID: 171612229
- Section: NAA
- This assignment represents my own work in accordance with Seneca Academic Policy.
- Signature: Romil Lakhani
- Date: 01-08-2025
- **********************************************/
-package com.fx.apd_workshop6_7.databases;
 
-import com.fx.apd_workshop6_7.model.Inventory;
-import com.fx.apd_workshop6_7.model.Part;
-import com.fx.apd_workshop6_7.model.Product;
-import com.fx.apd_workshop6_7.model.InHouse;
-import  com.fx.apd_workshop6_7.model.Outsourced;
-import com.fx.apd_workshop6_7.utils.dbUtils;
+package com.fx.Aircraft_Inventory_Management_System.databases;
+
+import com.fx.Aircraft_Inventory_Management_System.model.Inventory;
+import com.fx.Aircraft_Inventory_Management_System.model.Part;
+import com.fx.Aircraft_Inventory_Management_System.model.Product;
+import com.fx.Aircraft_Inventory_Management_System.model.InHouse;
+import  com.fx.Aircraft_Inventory_Management_System.model.Outsourced;
+import com.fx.Aircraft_Inventory_Management_System.utils.dbUtils;
 
 import java.sql.*;
 

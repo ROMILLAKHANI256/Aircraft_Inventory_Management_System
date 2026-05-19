@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.fx</groupId>
-    <artifactId>APD_workshop4_5</artifactId>
+    <artifactId>Aircraft_Inventory_Management_System</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>APD_workshop4_5</name>
 
@@ -133,7 +133,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.fx.apd_workshop4_5/com.fx.apd_workshop6_7.Inventory</mainClass>
+                            <mainClass>com.fx.apd_workshop4_5/com.fx.Aircraft_Inventory_Management_System.Inventory</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
